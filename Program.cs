@@ -18,8 +18,17 @@
 
             Console.WriteLine(IsAnyWordUpperCase(wordsWithUppercase));
 
+            var orderedWords = wordsNoUppercase.OrderBy(word => word); // sorts alphabetically
+
             Console.ReadKey();
         }
+
+        public bool IsAnyWordUpperCase_Linq(IEnumerable<string> words)
+        {
+            return words.Any(word => word.All(letter => char.IsUpper(letter)));
+        }
+
+
 
         public static bool IsAnyWordUpperCase(
             IEnumerable<string> words)
